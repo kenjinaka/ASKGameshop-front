@@ -15,7 +15,7 @@
             if(this.usuario == null || !this.usuario.admin){
                 return this.$router.push({ name: 'login' })
             }
-            this.$http.get('https://askgameshop-prod.herokuapp.com/api/admin/buscarjogos').then(res => {
+            this.$http.get('https://askgames-app.herokuapp.com/api/admin/buscarjogos').then(res => {
                 this.jogos = res.body;
             }, res => {
                 console.log(res)
@@ -24,7 +24,7 @@
         methods: {
             removerJogo(jogo){
                 console.log(jogo);
-                this.$http.delete('https://askgameshop-prod.herokuapp.com/api/admin/excluirjogo', {body: jogo}).then(res => {
+                this.$http.delete('https://askgames-app.herokuapp.com/api/admin/excluirjogo', {body: jogo}).then(res => {
                     if(res.status == 200){
                         this.jogos.map(j => {
                             if(j.id == jogo.id){

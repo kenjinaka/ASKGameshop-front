@@ -32,7 +32,7 @@
                 if(this.usuario == null){
                     return this.$router.push({ name: 'login' })
                 }
-                this.$http.get('https://askgameshop-prod.herokuapp.com/api/admin/buscarjogos').then(res =>{
+                this.$http.get('https://askgames-app.herokuapp.com/api/admin/buscarjogos').then(res =>{
                     this.jogos = res.body;
                     this.jogos.map(j => {   
                         if(j.id == this.id){
@@ -42,7 +42,7 @@
                 }, res => {
                     console.log(res);
                 });
-                this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/buscarcliente', this.usuario).then(res =>{
+                this.$http.post('https://askgames-app.herokuapp.com/api/cliente/buscarcliente', this.usuario).then(res =>{
                     this.cliente = res.body;
                     this.validarJogo();
                 }, res => {
@@ -74,14 +74,14 @@
                     Status: 0,
                     Parcelamento: 1
                 };
-                this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/adicionar', this.pedido);
+                this.$http.post('https://askgames-app.herokuapp.com/api/cliente/adicionar', this.pedido);
             },
             validarJogo(){
                 let pedido = {
                     Cliente: this.cliente,
                     Jogo: this.jogo
                 }
-                this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/verificarjogosacola', pedido).then(res => {
+                this.$http.post('https://askgames-app.herokuapp.com/api/cliente/verificarjogosacola', pedido).then(res => {
                     if(res.status == 201){
                         this.messageButton = 'Jogo já adicionado'
                         this.disabledButton = true;
@@ -111,7 +111,7 @@
                     Cliente: this.cliente,
                     Jogo: this.jogo
                 }
-                this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/adicionarjogosacola', pedido).then(res => {
+                this.$http.post('https://askgames-app.herokuapp.com/api/cliente/adicionarjogosacola', pedido).then(res => {
                     if(res.status == 204){
                         this.messageError = "Jogo já adquirido";
                     }else if(res.status == 201){

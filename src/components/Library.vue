@@ -19,7 +19,7 @@ export default {
     if(this.usuario == null){
         return this.$router.push({ name: 'login' })
     }
-    this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/buscarcliente', this.usuario).then(res => {
+    this.$http.post('https://askgames-app.herokuapp.com/api/cliente/buscarcliente', this.usuario).then(res => {
         this.cliente = res.body;
         this.buscarJogos();
     }, res => {
@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     buscarJogos(){
-      this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/buscarjogoscliente', this.cliente).then(res => {
+      this.$http.post('https://askgames-app.herokuapp.com/api/cliente/buscarjogoscliente', this.cliente).then(res => {
         this.jogos = res.body;
         console.log(this.jogos)
       }, res => {

@@ -18,7 +18,7 @@
             if(this.usuario == null){
                 return this.$router.push({ name: 'login' })
             }
-            this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/buscarcliente', this.usuario).then(res => {
+            this.$http.post('https://askgames-app.herokuapp.com/api/cliente/buscarcliente', this.usuario).then(res => {
                 this.cliente = res.body;
                 this.buscarPedidos();
             }, res => {
@@ -40,7 +40,7 @@
                 return [day, month, year].join('/');
             },
             buscarPedidos(){
-                this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/historicopedidocliente', this.cliente).then(res => {
+                this.$http.post('https://askgames-app.herokuapp.com/api/cliente/historicopedidocliente', this.cliente).then(res => {
                 if(res.status == 200){
                     this.pedidos = res.body;
                 }

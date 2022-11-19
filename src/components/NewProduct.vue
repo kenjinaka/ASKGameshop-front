@@ -52,7 +52,7 @@
                 this.jogo.DataCadastro = this.formatDate()
                 this.jogo.URLFoto = this.gerarUrl()
                 console.log(this.jogo);
-                this.$http.post('https://askgameshop-prod.herokuapp.com/api/admin/cadastrarjogo', this.jogo).then(res => {
+                this.$http.post('https://askgames-app.herokuapp.com/api/admin/cadastrarjogo', this.jogo).then(res => {
                     if(res.status == 200){
                         this.message = "Jogo Cadastrado!";
                     }else{

@@ -11,7 +11,7 @@
         },
         methods: {
             efetuarLogin(){
-                this.$http.post("https://askgameshop-prod.herokuapp.com/api/cliente/login", this.usuario).then(res => {
+                this.$http.post("https://askgames-app.herokuapp.com/api/cliente/login", this.usuario).then(res => {
                     if(res.status == 200){
                         this.$root.setUsuario(res.body);
                         if(res.body.admin){

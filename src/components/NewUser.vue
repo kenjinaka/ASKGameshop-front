@@ -46,7 +46,7 @@ export default {
             this.usuario.DataCadastro = this.formatDate();
             this.cliente.Usuario = this.usuario;
             console.log(this.cliente);
-            this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/cadastrarcliente', this.cliente).then(res => {
+            this.$http.post('https://askgames-app.herokuapp.com/api/cliente/cadastrarcliente', this.cliente).then(res => {
                 if (res.status == 200) {
                     this.messageError = null;
                     this.message = "Cadastro concluído!";

@@ -19,7 +19,7 @@
             if(this.usuario == null || !this.usuario.admin){
                 return this.$router.push({ name: 'login' })
             }
-            this.$http.get('https://askgameshop-prod.herokuapp.com/api/admin/buscarjogos').then(res =>{
+            this.$http.get('https://askgames-app.herokuapp.com/api/admin/buscarjogos').then(res =>{
                 this.jogos = res.body;
                 this.jogos.map(j => {   
                     if(j.id == this.id){
@@ -51,7 +51,7 @@
                 return stringNova;
             },
             salvarJogo(){
-                this.$http.put('https://askgameshop-prod.herokuapp.com/api/admin/alterarjogo', this.jogo).then(res => {
+                this.$http.put('https://askgames-app.herokuapp.com/api/admin/alterarjogo', this.jogo).then(res => {
                     if(res.status == 200){
                         this.message = "Jogo Alterado!";
                     }else{

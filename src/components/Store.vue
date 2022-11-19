@@ -21,7 +21,7 @@ export default {
       }
   },
   created() {
-    this.$http.get('https://askgameshop-prod.herokuapp.com/api/admin/buscarjogos').then(res =>{
+    this.$http.get('https://askgames-app.herokuapp.com/api/admin/buscarjogos').then(res =>{
       this.jogos = res.body;
       if(this.jogos[0] != undefined){
         this.jogosCarousel.push(this.jogos[0]);

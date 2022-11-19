@@ -52,7 +52,7 @@ export default {
       if (this.usuario == null) {
         return this.$router.push({ name: 'login' })
       }
-      this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/buscarcliente', this.usuario).then(res => {
+      this.$http.post('https://askgames-app.herokuapp.com/api/cliente/buscarcliente', this.usuario).then(res => {
         this.cliente = res.body;
         this.buscarSacola();
       }, res => {
@@ -63,7 +63,7 @@ export default {
       this.$swal('Deseja confirmar a compra?');
     },
     buscarSacola() {
-      this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/buscarsacola', this.cliente).then(res => {
+      this.$http.post('https://askgames-app.herokuapp.com/api/cliente/buscarsacola', this.cliente).then(res => {
         this.pedido = res.body
 
       }, res => {
@@ -81,7 +81,7 @@ export default {
         JogoId: jogo.id,
         ClienteId: this.cliente.id
       };
-      this.$http.delete('https://askgameshop-prod.herokuapp.com/api/cliente/removersacola', { body: jogoNaSacola }).then(res => {
+      this.$http.delete('https://askgames-app.herokuapp.com/api/cliente/removersacola', { body: jogoNaSacola }).then(res => {
         if (res.status == 202) {
          this.messageError = "Erro ao excluir";
         } else {
@@ -151,7 +151,7 @@ export default {
         this.pagamentoPix();
       }
       this.pedido.cliente = this.cliente;
-      this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/finalizarpedido', this.pedido).then(res => {
+      this.$http.post('https://askgames-app.herokuapp.com/api/cliente/finalizarpedido', this.pedido).then(res => {
         if(res.status == 204){
           this.messageError = "Erro ao finalizar pedido";
         }else{

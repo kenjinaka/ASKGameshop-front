@@ -25,7 +25,7 @@ export default {
         if(this.usuario == null){
             return this.$router.push({ name: 'login' })
         }
-        this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/buscarcliente', this.usuario).then(res => {
+        this.$http.post('https://askgames-app.herokuapp.com/api/cliente/buscarcliente', this.usuario).then(res => {
             this.cliente = res.body;
             this.cliente.dataNascimento = this.formatDate(this.cliente.dataNascimento);
             this.apelido = this.cliente.apelido;
@@ -63,7 +63,7 @@ export default {
         salvarCliente() {
             this.usuario.dataCadastro = this.formatDate(this.usuario.dataCadastro);
             this.cliente.usuario = this.usuario;
-            this.$http.post('https://askgameshop-prod.herokuapp.com/api/cliente/AlterarCliente', this.cliente).then(res => {
+            this.$http.post('https://askgames-app.herokuapp.com/api/cliente/AlterarCliente', this.cliente).then(res => {
                 if (res.status == 200) {
                     this.messageError = null;
                     this.message = "Alteração concluída!";
