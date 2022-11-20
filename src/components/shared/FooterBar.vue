@@ -11,7 +11,7 @@ export default {
         <div class="col-4">
         </div>
         <div class="col-4">
-          <div class="text-center">RAK Game Shop<br />2022</div>
+          <div class="text-center">ASKGame Shop<br />2022</div>
         </div>
         <div class="col-4">
           <div class="d-flex flex-row-reverse">
